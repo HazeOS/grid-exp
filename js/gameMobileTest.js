@@ -43,71 +43,71 @@ function create () {
     group.inputEnableChildren = true;
 
 
-    var processor = group.create(380, 10, 'processor');
+    var processor = group.create(320, 10, 'processor');
     processor.scale.setTo(0.85);
     processor.inputEnabled = true;
     processor.input.enableDrag();
     processor.events.onDragStart.add(onDragStart, this);
     processor.events.onDragStop.add(onDragStop, this);
 
-    var power = group.create(480,10,'power');
+    var power = group.create(410,10,'power');
     power.scale.setTo(0.85);
     power.input.enabled=true;
     power.input.enableDrag();
     power.events.onDragStart.add(onDragStart, this);
     power.events.onDragStop.add(onDragStop, this);
 
-    var battery = group.create(510,10,'battery');
+    var battery = group.create(450,10,'battery');
     battery.scale.setTo(0.85);
     battery.input.enabled=true;
     battery.input.enableDrag();
     battery.events.onDragStart.add(onDragStart, this);
     battery.events.onDragStop.add(onDragStop, this);
 
-    var multicontroller = group.create(550,10,'multicontroller');
+    var multicontroller = group.create(480,10,'multicontroller');
     multicontroller.scale.setTo(0.85);
     multicontroller.input.enabled=true;
     multicontroller.input.enableDrag();
     multicontroller.events.onDragStart.add(onDragStart, this);
     multicontroller.events.onDragStop.add(onDragStop, this);
 
-    var reset_button = group.create(515,40,'reset_button');
+    var reset_button = group.create(455,40,'reset_button');
     reset_button.scale.setTo(0.85);
     reset_button.input.enabled=true;
     reset_button.input.enableDrag();
     reset_button.events.onDragStart.add(onDragStart, this);
     reset_button.events.onDragStop.add(onDragStop, this);
 
-    var start_button = group.create(515,60,'start_button');
-    start_button.scale.setTo(1);
+    var start_button = group.create(455,60,'start_button');
+    start_button.scale.setTo(0.85);
     start_button.input.enabled=true;
     start_button.input.enableDrag();
     start_button.events.onDragStart.add(onDragStart, this);
     start_button.events.onDragStop.add(onDragStop, this);
 
-    var sata1 = group.create(550,50,'sata1');
+    var sata1 = group.create(480,50,'sata1');
     sata1.scale.setTo(1);
     sata1.input.enabled=true;
     sata1.input.enableDrag();
     sata1.events.onDragStart.add(onDragStart, this);
     sata1.events.onDragStop.add(onDragStop, this);
 
-    var sata_block = group.create(380,110,'sata_block');
-    sata_block.scale.setTo(1);
+    var sata_block = group.create(320,110,'sata_block');
+    sata_block.scale.setTo(0.85);
     sata_block.input.enabled=true;
     sata_block.input.enableDrag();
     sata_block.events.onDragStart.add(onDragStart, this);
     sata_block.events.onDragStop.add(onDragStop, this);
 
-    var soundboard = group.create(420,110,'soundboard');
-    soundboard.scale.setTo(1);
+    var soundboard = group.create(350,110,'soundboard');
+    soundboard.scale.setTo(0.85);
     soundboard.input.enabled=true;
     soundboard.input.enableDrag();
     soundboard.events.onDragStart.add(onDragStart, this);
     soundboard.events.onDragStop.add(onDragStop, this);
 
-    var usb_block = group.create(460,110,'usb_block');
-    usb_block.scale.setTo(1);
+    var usb_block = group.create(380,110,'usb_block');
+    usb_block.scale.setTo(0.85);
     usb_block.input.enabled=true;
     usb_block.input.enableDrag();
     usb_block.events.onDragStart.add(onDragStart, this);
@@ -260,10 +260,10 @@ function popup_text(x,y,sprite) {
     });
 }
 function render() {
-    game.debug.text(result, 560, 20);
-    game.debug.text(counterTrue,560,40);
-    game.debug.text(counterFalse,560,60);
+    game.debug.text(result, 400, 300);
+    game.debug.text(counterTrue,400,340);
+    game.debug.text(counterFalse,400,360);
 
-    game.debug.text(Height,660,40);
-    game.debug.text(Width,660,60);
+    game.debug.text(Height,450,340);
+    game.debug.text(Width,450,360);
 }
