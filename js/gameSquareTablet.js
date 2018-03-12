@@ -57,28 +57,28 @@ function create () {
     power.events.onDragStart.add(onDragStart, this);
     power.events.onDragStop.add(onDragStop, this);
 
-    var battery = group.create(1000,10,'battery');
+    var battery = group.create(750,190,'battery');
     battery.scale.setTo(0.4);
     battery.input.enabled=true;
     battery.input.enableDrag();
     battery.events.onDragStart.add(onDragStart, this);
     battery.events.onDragStop.add(onDragStop, this);
 
-    var multicontroller = group.create(1100,10,'multicontroller');
+    var multicontroller = group.create(900,190,'multicontroller');
     multicontroller.scale.setTo(0.4);
     multicontroller.input.enabled=true;
     multicontroller.input.enableDrag();
     multicontroller.events.onDragStart.add(onDragStart, this);
     multicontroller.events.onDragStop.add(onDragStop, this);
 
-    var reset_button = group.create(1005,100,'reset_button');
+    var reset_button = group.create(850,190,'reset_button');
     reset_button.scale.setTo(0.4);
     reset_button.input.enabled=true;
     reset_button.input.enableDrag();
     reset_button.events.onDragStart.add(onDragStart, this);
     reset_button.events.onDragStop.add(onDragStop, this);
 
-    var start_button = group.create(1005,70,'start_button');
+    var start_button = group.create(810,190,'start_button');
     start_button.scale.setTo(0.4);
     start_button.input.enabled=true;
     start_button.input.enableDrag();
@@ -92,21 +92,21 @@ function create () {
     sata1.events.onDragStart.add(onDragStart, this);
     sata1.events.onDragStop.add(onDragStop, this);
 
-    var sata_block = group.create(825,300,'sata_block');
+    var sata_block = group.create(810,300,'sata_block');
     sata_block.scale.setTo(0.4);
     sata_block.input.enabled=true;
     sata_block.input.enableDrag();
     sata_block.events.onDragStart.add(onDragStart, this);
     sata_block.events.onDragStop.add(onDragStop, this);
 
-    var soundboard = group.create(885,300,'soundboard');
+    var soundboard = group.create(865,300,'soundboard');
     soundboard.scale.setTo(0.4);
     soundboard.input.enabled=true;
     soundboard.input.enableDrag();
     soundboard.events.onDragStart.add(onDragStart, this);
     soundboard.events.onDragStop.add(onDragStop, this);
 
-    var usb_block = group.create(955,300,'usb_block');
+    var usb_block = group.create(925,300,'usb_block');
     usb_block.scale.setTo(0.4);
     usb_block.input.enabled=true;
     usb_block.input.enableDrag();
