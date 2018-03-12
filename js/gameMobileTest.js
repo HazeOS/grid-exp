@@ -36,7 +36,7 @@ function create () {
     game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
 
     var motherboard = game.add.sprite(0, 0, 'motherboard');
-    motherboard.scale.setTo(1);
+    motherboard.scale.setTo(0.85);
     game.scale.pageAlignVertically = true;
 
     var group = game.add.group();
@@ -44,35 +44,35 @@ function create () {
 
 
     var processor = group.create(380, 10, 'processor');
-    processor.scale.setTo(1);
+    processor.scale.setTo(0.85);
     processor.inputEnabled = true;
     processor.input.enableDrag();
     processor.events.onDragStart.add(onDragStart, this);
     processor.events.onDragStop.add(onDragStop, this);
 
     var power = group.create(480,10,'power');
-    power.scale.setTo(1);
+    power.scale.setTo(0.85);
     power.input.enabled=true;
     power.input.enableDrag();
     power.events.onDragStart.add(onDragStart, this);
     power.events.onDragStop.add(onDragStop, this);
 
     var battery = group.create(510,10,'battery');
-    battery.scale.setTo(1);
+    battery.scale.setTo(0.85);
     battery.input.enabled=true;
     battery.input.enableDrag();
     battery.events.onDragStart.add(onDragStart, this);
     battery.events.onDragStop.add(onDragStop, this);
 
     var multicontroller = group.create(550,10,'multicontroller');
-    multicontroller.scale.setTo(1);
+    multicontroller.scale.setTo(0.85);
     multicontroller.input.enabled=true;
     multicontroller.input.enableDrag();
     multicontroller.events.onDragStart.add(onDragStart, this);
     multicontroller.events.onDragStop.add(onDragStop, this);
 
     var reset_button = group.create(515,40,'reset_button');
-    reset_button.scale.setTo(1);
+    reset_button.scale.setTo(0.85);
     reset_button.input.enabled=true;
     reset_button.input.enableDrag();
     reset_button.events.onDragStart.add(onDragStart, this);
