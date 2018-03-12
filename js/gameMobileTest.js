@@ -9,19 +9,19 @@ var game = new Phaser.Game(Width, Height, Phaser.AUTO, 'phaser-example',
 
 function preload() {
 
-   game.load.image('motherboard','./resources/motherboard.png');
-   game.load.image('processor','./resources/Intel_CPU.png');
-   game.load.image('power', './resources/mbpower.png');
-   game.load.image('battery','./resources/battery.png');
-   game.load.image('multicontroller', './resources/multicontroller.png');
-   game.load.image('ram','./resources/RAM.png');//ЗАМЕНИТЬ
-   game.load.image('reset_button','./resources/reset_button.png');
-   game.load.image('sata1','./resources/sata1.png');
-   game.load.image('sata_block','./resources/sata-block.png');
-   game.load.image('soundboard','./resources/soundboard.png');
-   game.load.image('start_button','./resources/start_button.png');
-   game.load.image('usb_block','./resources/usb-block.png');
-   game.load.image('videocard','./resources/videocard.png');
+   game.load.image('motherboard','./resources/Mobile/mobileMother.png');
+   game.load.image('processor','./resources/Mobile/mobileIntel.png');
+   game.load.image('power', './resources/Mobile/mobilePower.png');
+   game.load.image('battery','./resources/Mobile/mobileBattery.png');
+   game.load.image('multicontroller', './resources/Mobile/mobileMultiController.png');
+   game.load.image('ram','./resources/RAM.png');//change (bad texture)
+   game.load.image('reset_button','./resources/Mobile/mobileReset.png');
+   game.load.image('sata1','./resources/Mobile/mobileSATA.png');
+   game.load.image('sata_block','./resources/Mobile/mobileSATAblock.png');
+   game.load.image('soundboard','./resources/Mobile/mobileSoundboard.png');
+   game.load.image('start_button','./resources/Mobile/mobileStart.png');
+   game.load.image('usb_block','./resources/Mobile/mobileUSBblock.png');
+   //game.load.image('videocard','./resources/Mobile/videocard.png');// not used
 
 }
 //Управление разрешениями
@@ -36,78 +36,78 @@ function create () {
     game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
 
     var motherboard = game.add.sprite(0, 0, 'motherboard');
-    motherboard.scale.setTo(0.175);
+    motherboard.scale.setTo(1);
     game.scale.pageAlignVertically = true;
 
     var group = game.add.group();
     group.inputEnableChildren = true;
 
 
-    var processor = group.create(330, 10, 'processor');
-    processor.scale.setTo(0.175);
+    var processor = group.create(380, 10, 'processor');
+    processor.scale.setTo(1);
     processor.inputEnabled = true;
     processor.input.enableDrag();
     processor.events.onDragStart.add(onDragStart, this);
     processor.events.onDragStop.add(onDragStop, this);
 
-    var power = group.create(420,10,'power');
-    power.scale.setTo(0.175);
+    var power = group.create(480,10,'power');
+    power.scale.setTo(1);
     power.input.enabled=true;
     power.input.enableDrag();
     power.events.onDragStart.add(onDragStart, this);
     power.events.onDragStop.add(onDragStop, this);
 
-    var battery = group.create(450,10,'battery');
-    battery.scale.setTo(0.175);
+    var battery = group.create(510,10,'battery');
+    battery.scale.setTo(1);
     battery.input.enabled=true;
     battery.input.enableDrag();
     battery.events.onDragStart.add(onDragStart, this);
     battery.events.onDragStop.add(onDragStop, this);
 
-    var multicontroller = group.create(500,10,'multicontroller');
-    multicontroller.scale.setTo(0.175);
+    var multicontroller = group.create(550,10,'multicontroller');
+    multicontroller.scale.setTo(1);
     multicontroller.input.enabled=true;
     multicontroller.input.enableDrag();
     multicontroller.events.onDragStart.add(onDragStart, this);
     multicontroller.events.onDragStop.add(onDragStop, this);
 
-    var reset_button = group.create(455,40,'reset_button');
-    reset_button.scale.setTo(0.175);
+    var reset_button = group.create(515,40,'reset_button');
+    reset_button.scale.setTo(1);
     reset_button.input.enabled=true;
     reset_button.input.enableDrag();
     reset_button.events.onDragStart.add(onDragStart, this);
     reset_button.events.onDragStop.add(onDragStop, this);
 
-    var start_button = group.create(455,60,'start_button');
-    start_button.scale.setTo(0.175);
+    var start_button = group.create(515,60,'start_button');
+    start_button.scale.setTo(1);
     start_button.input.enabled=true;
     start_button.input.enableDrag();
     start_button.events.onDragStart.add(onDragStart, this);
     start_button.events.onDragStop.add(onDragStop, this);
 
-    var sata1 = group.create(500,40,'sata1');
-    sata1.scale.setTo(0.175);
+    var sata1 = group.create(550,50,'sata1');
+    sata1.scale.setTo(1);
     sata1.input.enabled=true;
     sata1.input.enableDrag();
     sata1.events.onDragStart.add(onDragStart, this);
     sata1.events.onDragStop.add(onDragStop, this);
 
-    var sata_block = group.create(330,100,'sata_block');
-    sata_block.scale.setTo(0.175);
+    var sata_block = group.create(380,110,'sata_block');
+    sata_block.scale.setTo(1);
     sata_block.input.enabled=true;
     sata_block.input.enableDrag();
     sata_block.events.onDragStart.add(onDragStart, this);
     sata_block.events.onDragStop.add(onDragStop, this);
 
-    var soundboard = group.create(370,100,'soundboard');
-    soundboard.scale.setTo(0.175);
+    var soundboard = group.create(420,110,'soundboard');
+    soundboard.scale.setTo(1);
     soundboard.input.enabled=true;
     soundboard.input.enableDrag();
     soundboard.events.onDragStart.add(onDragStart, this);
     soundboard.events.onDragStop.add(onDragStop, this);
 
-    var usb_block = group.create(410,100,'usb_block');
-    usb_block.scale.setTo(0.175);
+    var usb_block = group.create(460,110,'usb_block');
+    usb_block.scale.setTo(1);
     usb_block.input.enabled=true;
     usb_block.input.enableDrag();
     usb_block.events.onDragStart.add(onDragStart, this);
@@ -260,10 +260,10 @@ function popup_text(x,y,sprite) {
     });
 }
 function render() {
-    game.debug.text(result, 1200, 20);
-    game.debug.text(counterTrue,1200,40);
-    game.debug.text(counterFalse,1200,60);
+    game.debug.text(result, 560, 20);
+    game.debug.text(counterTrue,560,40);
+    game.debug.text(counterFalse,560,60);
 
-    game.debug.text(Height,1300,40);
-    game.debug.text(Width,1300,60);
+    game.debug.text(Height,660,40);
+    game.debug.text(Width,660,60);
 }
