@@ -142,7 +142,7 @@ function onDragStop(sprite) {
 
     result = sprite.key + " dropped at x:" + sprite.x + " y: " + sprite.y;
 //x:408 - 422 y:201 - 214
-    if(sprite.x >= 408 && sprite.x <=422 && sprite.y>=201 && sprite.y <=214 && sprite.key === 'processor')
+    if(sprite.x >= 133 && sprite.x <=141 && sprite.y>=71 && sprite.y <=76 && sprite.key === 'processor')
     {
         //result = 'drag disabled on'+ sprite.key;
         counterTrue++;
@@ -260,10 +260,10 @@ function popup_text(x,y,sprite) {
     });
 }
 function render() {
-    game.debug.text(result, 400, 300);
-    game.debug.text(counterTrue,400,340);
-    game.debug.text(counterFalse,400,360);
+    game.debug.text(result, 320, 300);
+    game.debug.text(counterTrue,320,340);
+    game.debug.text(counterFalse,320,360);
 
-    game.debug.text(Height,450,340);
-    game.debug.text(Width,450,360);
+    game.debug.text(Height,350,340);
+    game.debug.text(Width,350,360);
 }

@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a80b47ac-f29d-43dc-94ec-24321037fbc9" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/gameMobileTest.js" afterPath="$PROJECT_DIR$/js/gameMobileTest.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/gameSquareTablet.js" afterPath="$PROJECT_DIR$/js/gameSquareTablet.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -36,17 +35,17 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="gameMobileTest.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="gameMobileTest.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/js/gameMobileTest.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="635">
-                  <caret line="262" column="0" lean-forward="false" selection-start-line="262" selection-start-column="0" selection-end-line="267" selection-end-column="35" />
+                <state relative-caret-position="315">
+                  <caret line="144" column="73" lean-forward="false" selection-start-line="144" selection-start-column="73" selection-end-line="144" selection-end-column="73" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="gameSquareTablet.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="gameSquareTablet.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/js/gameSquareTablet.js">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="675">
@@ -119,8 +118,8 @@
         <option value="$PROJECT_DIR$/styles/style.css" />
         <option value="$PROJECT_DIR$/js/control.js" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/js/gameMobileTest.js" />
         <option value="$PROJECT_DIR$/js/gameSquareTablet.js" />
+        <option value="$PROJECT_DIR$/js/gameMobileTest.js" />
       </list>
     </option>
   </component>
@@ -131,7 +130,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1400" />
@@ -210,15 +209,15 @@
       <workItem from="1520592424797" duration="20347000" />
       <workItem from="1520675363537" duration="9933000" />
       <workItem from="1520792859683" duration="7300000" />
-      <workItem from="1520847026652" duration="18478000" />
+      <workItem from="1520847026652" duration="19271000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56058000" />
+    <option name="totallyTimeSpent" value="56851000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10885417" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -392,18 +391,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/gameMobileTest.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="635">
-          <caret line="262" column="0" lean-forward="false" selection-start-line="262" selection-start-column="0" selection-end-line="267" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/gameSquareTablet.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="675">
           <caret line="237" column="72" lean-forward="false" selection-start-line="237" selection-start-column="72" selection-end-line="237" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/gameMobileTest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="144" column="73" lean-forward="false" selection-start-line="144" selection-start-column="73" selection-end-line="144" selection-end-column="73" />
           <folding />
         </state>
       </provider>
