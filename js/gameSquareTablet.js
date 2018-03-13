@@ -8,7 +8,7 @@ var game = new Phaser.Game(Width, Height, Phaser.AUTO, 'phaser-example',
     { preload: preload, create: create, render: render });
 
 function preload() {
-
+    game.load.image('background','./resources/background2.jpg');
     game.load.image('motherboard','./resources/motherboard.png');
     game.load.image('processor','./resources/Intel_CPU.png');
     game.load.image('power', './resources/mbpower.png');
@@ -24,16 +24,12 @@ function preload() {
     game.load.image('videocard','./resources/videocard.png');
 
 }
-//Управление разрешениями
-var scale;
-var x;
-var y;
-if(Width<=812){
-    scale = 0.2;
-}
+
 //Управление разрешениями
 function create () {
     game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
+
+    game.add.tileSprite(0, 0, Width, Height, 'background');
 
     var motherboard = game.add.sprite(0, 0, 'motherboard');
     motherboard.scale.setTo(0.4);
@@ -138,7 +134,7 @@ function onDragStart(sprite) {
 }
 
 //HD - 1920:1080
-function onDragStop(sprite) {
+function onDragStop(sprite,pointer) {
 
     result = sprite.key + " dropped at x:" + sprite.x + " y: " + sprite.y;
 //x:408 - 422 y:201 - 214
@@ -149,7 +145,7 @@ function onDragStop(sprite) {
         console.log('input disabled on', sprite.key);
         sprite.input.enabled = false;
         sprite.sendToBack();
-        popup_text(sprite.x+140,sprite.y+5,this);
+        popup_text(pointer.x,pointer.y-30,this);
     }
 //x:857 - 860 y:268 - 274
     if(sprite.x >= 684 && sprite.x <=691 && sprite.y>=213 && sprite.y <=219 && sprite.key ==='power')
@@ -159,7 +155,7 @@ function onDragStop(sprite) {
         console.log('input disabled on', sprite.key);
         sprite.input.enabled = false;
         sprite.sendToBack();
-        popup_text(sprite.x+70,sprite.y+5,this);
+        popup_text(pointer.x,pointer.y-30,this);
     }
 
     if(sprite.x >= 412 && sprite.x <=417 && sprite.y>=505 && sprite.y <=511 && sprite.key ==='battery')
@@ -169,7 +165,7 @@ function onDragStop(sprite) {
         console.log('input disabled on', sprite.key);
         sprite.input.enabled = false;
         sprite.sendToBack();
-        popup_text(sprite.x+70,sprite.y+5,this);
+        popup_text(pointer.x,pointer.y-30,this);
     }
 //x:72 - 75 y:642 - 646
     if(sprite.x >= 56 && sprite.x <=61 && sprite.y>=511 && sprite.y <=516 && sprite.key ==='multicontroller')
@@ -179,7 +175,7 @@ function onDragStop(sprite) {
         console.log('input disabled on', sprite.key);
         sprite.input.enabled = false;
         sprite.sendToBack();
-        popup_text(sprite.x+70,sprite.y+5,this);
+        popup_text(pointer.x,pointer.y-30,this);
     }
 //x:360 - 362  y:851 - 854
     if(sprite.x >= 287 && sprite.x <=290 && sprite.y>=679 && sprite.y <=682 && sprite.key ==='reset_button')
@@ -189,7 +185,7 @@ function onDragStop(sprite) {
         console.log('input disabled on', sprite.key);
         sprite.input.enabled = false;
         sprite.sendToBack();
-        popup_text(sprite.x+70,sprite.y+5,this);
+        popup_text(pointer.x,pointer.y-30,this);
     }
 //x:  y:
     if(sprite.x >= 243 && sprite.x <=246 && sprite.y>=678 && sprite.y <=681 && sprite.key ==='start_button')
@@ -199,7 +195,7 @@ function onDragStop(sprite) {
         console.log('input disabled on', sprite.key);
         sprite.input.enabled = false;
         sprite.sendToBack();
-        popup_text(sprite.x+70,sprite.y+10,this);
+        popup_text(pointer.x,pointer.y-30,this);
     }
 
 
@@ -211,7 +207,7 @@ function onDragStop(sprite) {
         console.log('input disabled on', sprite.key);
         sprite.input.enabled = false;
         sprite.sendToBack();
-        popup_text(sprite.x+70,sprite.y+10,this);
+        popup_text(pointer.x,pointer.y-30,this);
     }
 
     //x:  y:
@@ -222,7 +218,7 @@ function onDragStop(sprite) {
         console.log('input disabled on', sprite.key);
         sprite.input.enabled = false;
         sprite.sendToBack();
-        popup_text(sprite.x+70,sprite.y+10,this);
+        popup_text(pointer.x,pointer.y-30,this);
     }
 
     if(sprite.x >= 34 && sprite.x <=38 && sprite.y>=626 && sprite.y <=631 && sprite.key ==='soundboard')
@@ -232,7 +228,7 @@ function onDragStop(sprite) {
         console.log('input disabled on', sprite.key);
         sprite.input.enabled = false;
         sprite.sendToBack();
-        popup_text(sprite.x+70,sprite.y+10,this);
+        popup_text(pointer.x,pointer.y-30,this);
     }
 
     if(sprite.x >= 5 && sprite.x <=16 && sprite.y>=219 && sprite.y <=227 && sprite.key ==='usb_block')
@@ -242,23 +238,29 @@ function onDragStop(sprite) {
         console.log('input disabled on', sprite.key);
         sprite.input.enabled = false;
         sprite.sendToBack();
-        popup_text(sprite.x+70,sprite.y+10,this);
+        popup_text(pointer.x,pointer.y-30,this);
     }
 }
 
 function popup_text(x,y,sprite) {
     new FloatingText(sprite, {
-        text: "+1!",
+        text: randText(),
         animation: "explode",
         textOptions: {
-            fontSize: 32,
-            fill: "#ff18aa"
+            fontSize: 28,
+            fill: "#1ff416",
+            font:"Consolas"
         },
         x: x,
         y: y,
         timeToLive: 400 // ms
     });
 }
+function randText() {
+    var text = ["Consolas!","++","Yes!"];
+    return  text[Math.floor(Math.random() * (text.length))]
+}
+
 function render() {
     game.debug.text(result, 400, 800);
     game.debug.text(counterTrue,400,840);
