@@ -4,7 +4,6 @@ $(document).ready(function getWidth() {
     var Width = window.screen.availWidth;
 
     if(Height>Width) {
-
         $("body").append("<div>");
         var text = $("div");
         text.addClass("textErr");
@@ -16,8 +15,14 @@ $(document).ready(function getWidth() {
         script.src = "js/gameHD.js";
         $("body").append(script);
     }
-    if(Width>812 && Width<=1900){       //TABLET
-        script.src = "js/gameSquareTablet.js";
+
+    if(Width===1280){       //SQUARE + IPad Pro
+        script.src = "js/gameSquare.js";
+        $("body").append(script);
+    }
+
+    if(Width===1024){       //IPAD
+        script.src = "js/gameIPad.js";
         $("body").append(script);
     }
 
@@ -26,6 +31,10 @@ $(document).ready(function getWidth() {
             $("body").append(script);
     }
 
+    if(Width>=1200 && Width <= 1680){  //NOTEBOOKS
+        script.src = "js/gameLowHeight.js";
+        $("body").append(script);
+    }
 
 });
 
