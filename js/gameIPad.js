@@ -23,10 +23,20 @@ var usb_block;
 
 var button_pause;
 var button_resume;
+var continue_button;
+
 var text;
 var score;
+var true_count;
+var false_count;
+var win;
+
+var timer;
+
+var inputDB;
 
 function preload() {
+    game.add.plugin(PhaserInput.Plugin);
     game.load.image('background','./resources/background2.jpg');
     game.load.image('motherboard','./resources/motherboard.png');
     game.load.image('processor','./resources/Intel_CPU.png');
@@ -44,6 +54,14 @@ function preload() {
 
     game.load.spritesheet('pause','./resources/controls/pause.png');
     game.load.spritesheet('play','./resources/controls/play.png');
+
+    game.load.spritesheet('cpu','./resources/end/CPU.svg');
+    game.load.spritesheet('hd','./resources/end/HD.svg');
+    game.load.spritesheet('js','./resources/end/JS.svg');
+    game.load.spritesheet('pc','./resources/end/PC.svg');
+    game.load.spritesheet('ram','./resources/end/RAM.svg');
+    game.load.spritesheet('usb','./resources/end/USB.svg');
+    game.load.spritesheet('continue','./resources/end/continue.png')
 }
 
 
@@ -54,19 +72,26 @@ function create () {
     background = game.add.tileSprite(0, 0, Width, Height, 'background');
     background.alpha = 1;
 
+    game.physics.startSystem(Phaser.Physics.ARCADE);
+
     text = game.add.text(815,10,"Details",
         {font: "bold 48px Consolas", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle"});
     score = game.add.text(835,405,"Score",
         {font: "bold 48px Consolas", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle"});
-    game.add.text(800,450,"True",
+    true_count = game.add.text(800,450,"True",
         {font: "bold 32px Consolas", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle"});
     right = game.add.text(800,480,counterTrue,
         {font: "bold 28px Consolas", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle"});
 
-    game.add.text(920,450,"False",
+    false_count = game.add.text(920,450,"False",
         {font: "bold 32px Consolas", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle"});
     wrong = game.add.text(920,480,counterFalse,
         {font: "bold 28px Consolas", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle"});
+
+    win = game.add.text(game.world.centerX,Height+200,"YOU WON!",
+        {font: "bold 128px Consolas", fill: "#fff", align:"center",boundsAlignH: "center", boundsAlignV: "middle"});
+    win.anchor.setTo(0.45,0.5);
+    win.bringToTop(this);
 
     motherboard = game.add.sprite(0, 0, 'motherboard');
     motherboard.scale.setTo(0.42);
@@ -169,17 +194,35 @@ function create () {
     button_pause.inputEnabled = true;
     button_pause.events.onInputUp.add(create_resume_button, this);
     button_pause.scale.setTo(1);
+
+    continue_button = game.add.button(game.world.centerX,Height+200, 'continue', gotoResults, this);
+    continue_button.inputEnabled = true;
+    continue_button.anchor.setTo(0.5,0.5);
+    continue_button.scale.setTo(1);
+    continue_button.events.onInputOver.add(_rotate,this);
+
+    inputDB = game.add.inputField(game.world.centerX-400, Height+200, {
+        font: '18px Arial',
+        fill: '#212121',
+        fontWeight: 'bold',
+        width: 250,
+        padding: 8,
+        borderWidth: 1,
+        borderColor: '#000',
+        borderRadius: 6,
+        placeHolder: 'Your Name'
+    });
 }
 
 function render() {
 
-    var mousex = game.input.mousePointer.x;
-    var mousey = game.input.mousePointer.y;
+    //var mousex = game.input.mousePointer.x;
+    //var mousey = game.input.mousePointer.y;
 
     right.setText(counterTrue);
     wrong.setText(counterFalse);
 
-    game.debug.text(result, 690, 620);
+    /*game.debug.text(result, 690, 620);
     game.debug.text(counterTrue,800,660);
     game.debug.text(counterFalse,800,680);
 
@@ -187,7 +230,7 @@ function render() {
     game.debug.text(Width,850,680);
 
     game.debug.text(mousex, 950, 660);
-    game.debug.text(mousey, 950, 680);
+    game.debug.text(mousey, 950, 680);*/
 }
 
 function onDown(sprite) {
@@ -330,6 +373,45 @@ function onDragStop(sprite,pointer) {
         sprite.sendToBack();
         popup_text(pointer.x,pointer.y-30,this);
     }
+
+    if(counterTrue===1){
+        game.physics.arcade.enable([processor, power, battery, multicontroller,
+            reset_button, start_button, sata1, sata_block, soundboard, usb_block]);
+
+        processor.body.velocity.setTo(200, 200);
+        processor.body.collideWorldBounds = false;
+
+        power.body.velocity.setTo(-100, -100);
+        power.body.collideWorldBounds = false;
+
+        battery.body.velocity.setTo(200, 200);
+        battery.body.collideWorldBounds = false;
+
+        multicontroller.body.velocity.setTo(-100, -100);
+        multicontroller.body.collideWorldBounds = false;
+
+        reset_button.body.velocity.setTo(200, 200);
+        reset_button.body.collideWorldBounds = false;
+
+        start_button.body.velocity.setTo(-100, -100);
+        start_button.body.collideWorldBounds = false;
+
+        sata1.body.velocity.setTo(200, 200);
+        sata1.body.collideWorldBounds = false;
+
+        sata_block.body.velocity.setTo(-100, -100);
+        sata_block.body.collideWorldBounds = false;
+
+        soundboard.body.velocity.setTo(200, 200);
+        soundboard.body.collideWorldBounds = false;
+
+        usb_block.body.velocity.setTo(-100, -100);
+        usb_block.body.collideWorldBounds = false;
+
+        fadeDetails();
+        win_text();
+        matrix();
+    }
 }
 
 function popup_text(x,y,sprite) {
@@ -451,6 +533,82 @@ function mistakeCounter(sprite,pointer) {
         popup_text_miss(pointer.x, pointer.y - 50, this);
         counterFalse++;
     }
+}
+
+function fadeDetails() {
+    //DETAILS FADE
+    game.add.tween(motherboard).to( { alpha: 0 }, 1000, Phaser.Easing.Linear.None, true);
+    game.add.tween(processor).to( { alpha: 0 }, 1000, Phaser.Easing.Linear.None, true);
+    game.add.tween(power).to( { alpha: 0 }, 1000, Phaser.Easing.Linear.None, true);
+    game.add.tween(battery).to( { alpha: 0 }, 1000, Phaser.Easing.Linear.None, true);
+    game.add.tween(multicontroller).to( { alpha: 0 }, 1000, Phaser.Easing.Linear.None, true);
+    game.add.tween(reset_button).to( { alpha: 0 }, 1000, Phaser.Easing.Linear.None, true);
+    game.add.tween(start_button).to( { alpha: 0 }, 1000, Phaser.Easing.Linear.None, true);
+    game.add.tween(sata1).to( { alpha: 0 }, 1000, Phaser.Easing.Linear.None, true);
+    game.add.tween(sata_block).to( { alpha: 0 }, 1000, Phaser.Easing.Linear.None, true);
+    game.add.tween(soundboard).to( { alpha: 0 }, 1000, Phaser.Easing.Linear.None, true);
+    game.add.tween(usb_block).to( { alpha: 0 }, 1000, Phaser.Easing.Linear.None, true);
+
+    //TEXT FADE
+    game.add.tween(text).to( { alpha: 0 }, 1000, Phaser.Easing.Linear.None, true);
+    game.add.tween(score).to( { alpha: 0 }, 1000, Phaser.Easing.Linear.None, true);
+    game.add.tween(true_count).to( { alpha: 0 }, 1000, Phaser.Easing.Linear.None, true);
+    game.add.tween(false_count).to( { alpha: 0 }, 1000, Phaser.Easing.Linear.None, true);
+    game.add.tween(right).to( { alpha: 0 }, 1000, Phaser.Easing.Linear.None, true);
+    game.add.tween(wrong).to( { alpha: 0 }, 1000, Phaser.Easing.Linear.None, true);
+
+    //BUTTON FADE
+    game.add.tween(button_pause).to( { alpha: 0 }, 2000, Phaser.Easing.Linear.None, true);
+    //event.onComplete.add(win_text,this);
+}
+function win_text() {
+    var tween = game.add.tween(win).to( { x:game.world.centerX+20,y:game.world.centerY-100 }, 3000, Phaser.Easing.Elastic.InOut);
+    tween.start();
+    tween.onComplete.add(input_db,this);
+}
+function matrix() {
+    var emitter = game.add.emitter(game.world.centerX, 0, 400);
+
+    emitter.width = game.world.width;
+    // emitter.angle = 30; // uncomment to set an angle for the rain.
+
+    emitter.makeParticles(randNumber());
+
+
+    emitter.minParticleScale = 0.1;
+    emitter.maxParticleScale = 0.4;
+
+    emitter.bounce =1;
+
+    emitter.setYSpeed(100, 300);
+    emitter.setXSpeed(-5, 10);
+
+    emitter.minRotation = 0;
+    emitter.maxRotation = 50;
+
+    emitter.start(false, 4000, 5, 0);
+}
+
+function _continue() {
+
+    var tween1 = game.add.tween(continue_button).to( { x:game.world.centerX+25,y:game.world.centerY+50 }, 2000, Phaser.Easing.Exponential.InOut);
+    tween1.start();
+    tween1.onComplete.add(_rotate,this);
+}
+function gotoResults() {
+    window.open("http://www.google.com", "_blank");
+}
+function _rotate() {
+    game.add.tween(continue_button).to( { angle:360 }, 2000, Phaser.Easing.Exponential.InOut,true);
+}
+function randNumber() {
+    var sprite = ['cpu','hd','js','pc','ram','usb'];
+    return  sprite[Math.floor(Math.random() * (sprite.length))]
+}
+function input_db() {
+    var input_tween = game.add.tween(inputDB).to( { x:game.world.centerX-100, y:game.world.centerY-50 }, 2000, Phaser.Easing.Exponential.InOut);
+    input_tween.start();
+    input_tween.onComplete.add(_continue,this);
 }
 
 

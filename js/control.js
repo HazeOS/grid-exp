@@ -16,10 +16,10 @@ $(document).ready(function getWidth() {
         $("body").append(script);
     }
 
-    if(Width===1280){       //SQUARE + IPad Pro
-        script.src = "js/gameSquare.js";
-        $("body").append(script);
-    }
+    //if(Width===1280){       //SQUARE + IPad Pro
+      //  script.src = "js/gameSquare.js";
+       // $("body").append(script);
+    //}
 
     if(Width===1024){       //IPAD
         script.src = "js/gameIPad.js";
