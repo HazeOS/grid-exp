@@ -1,10 +1,349 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Info</title>
+    <link rel="stylesheet" href = "styles/info.css">
 </head>
-<body>
+<body alink = "#000" vlink = "#000" link = "#000">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="info.html">MA</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html" id = "main">Главная</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="select.html" id = "game">Игра</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://github.com/HazeOS/grid-exp">GitHub</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Контакты
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="https://vk.com/stroutg">VK</a>
+                    <a class="dropdown-item" href="https://www.instagram.com/hazedmindx/">Instagram</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
 
+<div class = "container-fluid">
+    <div class = "row">
+        <div class = "col-md-3 col-lg-2 d-flex flex-column">
+            <div class = "toc-container">
+                <div id  = "toc">
+                    <div class = "list-group">
+                        <div id = "toc-insert">
+                            <a class = "list-group-item item" href = "#processor" id = "proccessor_link">Центральный процессор</a>
+                            <a class = "list-group-item item" href = "#ram" id = "ram_link">Оперативная память</a>
+                            <a class = "list-group-item item" href = "#chipset" id = "chipset_link">Чипсет</a>
+                            <a class = "list-group-item item" href = "#graph-processor" id = "graph_processor_link">Графический процессор</a>
+                            <a class = "list-group-item item" href = "#motherboard" id = "motherboard_link">Материнская плата</a>
+                            <a class = "list-group-item item" href = "#battery" id="battery_link">Батарейка CMOS</a>
+                            <a class = "list-group-item item" href = "#hdd" id = "hdd_link">Жесткий диск</a>
+                            <a class = "list-group-item item" href = "#power" id = "power_link">Блок питания </a>
+                            <a class = "list-group-item item" href = "#usb" id  = "usb_link">USB</a>
+                            <a class = "list-group-item item" href = "#vga" id = "vga_link">VGA</a>
+                            <a class = "list-group-item">
+                                <img src = "resources/info/russia.png" id = "russian">
+                                <img src = "resources/info/united-kingdom.png" id = "british">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div class = "row d-flex justify-content-center align-items-end">
+                        <img src = "resources/info/up.png" class = "up img-fluid" id = "ToTop">
+                </div>
+        </div>
+
+        <div class = "col-md-9 col-lg-10 info">
+            <div class = "d-inline-flex">
+                <div class="d-flex flex-column ">
+                    <div class="p-2">
+                        <h1 class = "h1" id = "processor">Центральный процессор</h1>
+                        <blockquote class="blockquote">
+                            <p class="mb-0" id = "processor_cite">С четырьмя параметрами он может описать слона, а с пятым — заставить его махать хоботом.</p>
+                            <footer class="blockquote-footer"> <cite title="Source Title" id = "processor_person">©Джон Фон Нейман</cite></footer>
+                        </blockquote>
+                    </div>
+                    <div class="p-2">
+                        <p class = "lead" id = "processor_text">Процессор - это очень сложная микросхема обрабатывающая машинный код,
+                            отвечающая за выполнение различных операций и управление компьютерной периферии.<br>
+                            Интегрируется практически в любой электронной технике: телевизор, видеоплейер, современные кухонные приборы,
+                            а смартфоны сами по себе являются компьютерами, хоть и отличающимися по конструкции.
+                        </p>
+                    </div>
+                </div>
+
+                <div class = "d-flex flex-column">
+                    <div class="p-2">
+                        <img class = "img-responsive" src = "resources/info/cpu.png">
+                    </div>
+                </div>
+            </div>
+
+            <div class = "d-inline-flex">
+                <div class="d-flex flex-column ">
+                    <div class="p-2">
+                        <h1 class = "h1" id = "ram">Оперативная память</h1>
+                        <blockquote class="blockquote">
+                            <p class="mb-0" id = "ram_cite">Меня два раза спрашивали:
+                                «Скажите на милость, мистер Бэббидж, что случится, если вы введете в машину неверные цифры? Cможем ли мы получить правильный ответ?»
+                                Я не могу себе даже представить какая путаница в голове может привести к подобному вопросу.</p>
+                            <footer class="blockquote-footer"> <cite title="Source Title" id = "ram_person">©Чарлз Бэббидж</cite></footer>
+                        </blockquote>
+                    </div>
+                    <div class="p-2" id = "ram_text">
+                        <p class = "lead">Оперативная память — относительно быстрая энергозависимая память компьютера с произвольным
+                            доступом, в которой осуществляются большинство операций обмена данными между устройствами.
+                            Является энергозависимой, то есть при отключении питания, все данные на ней стираются.
+                            Оперативная память является хранилищем всех потоков информации, которые необходимо обработать
+                            процессору или же они дожидаются в оперативной памяти своей очереди. Все устройства, связывается с
+                            оперативной памятью через системную шину, а с ней в свою очередь обмениваются через кэш или же напрямую.
+                        </p>
+                    </div>
+                </div>
+
+                <div class = "d-flex flex-column">
+                    <div class="p-2">
+                        <img class = "img-responsive" src = "resources/info/ram-memory.png">
+                    </div>
+                </div>
+            </div>
+
+            <div class = "d-inline-flex">
+                <div class="d-flex flex-column ">
+                    <div class="p-2">
+                        <h1 class = "h1" id = "chipset">Чипсет</h1>
+                        <blockquote class="blockquote">
+                            <p class="mb-0" id = "chipset_cite">Это то, что действительно радует в работе с компьютерами. Они не спорят, они все помнят, и они никогда не выпьют все ваше пиво.</p>
+                            <footer class="blockquote-footer"> <cite title="Source Title" id = "chipset_person">©Пол Лери</cite></footer>
+                        </blockquote>
+                    </div>
+                    <div class="p-2">
+                        <p class = "lead" id = chipset_text>Чипсет – это набор микросхем (расположенных на материнской плате),
+                            который связывает память, процессор, видеоадаптер, устройства ввода вывода и другие элементы ПК,
+                            для выполнения совместных функций. То есть, является очень важным элементом материнской платы. Фактически 90%
+                            функциональности материнской платы зависят от выбора чипсета. Чипсет определяет тип процессора, тип памяти, который
+                            будет установлен в системе, также чипсетом определяется возможность подключения тех или иных периферийных устройств.
+                        </p>
+                    </div>
+                </div>
+
+                <div class = "d-flex flex-column">
+                    <div class="p-2">
+                        <img class = "img-responsive" src = "resources/info/chipset.png">
+                    </div>
+                </div>
+            </div>
+
+            <div class = "d-inline-flex">
+                <div class="d-flex flex-column ">
+                    <div class="p-2">
+                        <h1 class = "h1" id = "graph-processor">Графический процессор</h1>
+                        <blockquote class="blockquote">
+                            <p class="mb-0" id = "graph_processor_cite">Бог придумал устройство, а сатана – драйвера.</p>
+                            <footer class="blockquote-footer"> <cite title="Source Title" id = "graph_processor_person">©NULL</cite></footer>
+                        </blockquote>
+                    </div>
+                    <div class="p-2">
+                        <p class = "lead" id = "graph_processor_text">GPU (Graphics Processing Unit) — это процессор, предназначенный исключительно для
+                            операций по обработке графики и вычислений с плавающей точкой. Он в первую очередь существует для того,
+                            чтобы облегчить работу основного процессора, когда дело касается ресурсоемких игр или приложений с 3D-графикой.
+                            Когда вы играете в какую-либо игру, GPU отвечает за создание графики, цветов и текстур, в то время как CPU
+                            может заняться искусственным интеллектом или расчетами механики игры.
+                        </p>
+                    </div>
+                </div>
+
+                <div class = "d-flex flex-column">
+                    <div class="p-2">
+                        <img class = "img-responsive" src = "resources/info/gpu.png">
+                    </div>
+                </div>
+            </div>
+
+            <div class = "d-inline-flex">
+                <div class="d-flex flex-column ">
+                    <div class="p-2">
+                        <h1 class = "h1" id = "motherboard">Материнская плата</h1>
+                        <blockquote class="blockquote">
+                            <p class="mb-0" id = "motherboard_cite">Программы без ошибок можно написать двумя способами, но работает - третий.</p>
+                            <footer class="blockquote-footer"> <cite title="Source Title" id = "motherboard_person">©Алан Дж.Перлис</cite></footer>
+                        </blockquote>
+                    </div>
+                    <div class="p-2">
+                        <p class = "lead" id = "motherboard_text">
+                            Материнская плата компьютера , или системная плата, основное устройство, определяющее возможности компьютера.
+                            На материнской плате прежде всего размещаются:
+                            центральный процессор,
+                            оперативная память, сверхоперативное запоминающее устройство (кэш-память),
+                            постоянное запоминающее устройство с системой BIOS (базовой системой ввода/вывода информации),
+                            набор управляющих микросхем - чипсет, вспомогательных микросхем и контроллеров ввода/вывода информации,
+                            КМОП-память с данными об аппаратных настройках и аккумулятором для ее питания,
+                            разъемы расширения, или слоты,
+                            разъемы для подключения интерфейсных кабелей жестких дисков, дисководов, последовательного и параллельного портов, инфракрасного порта, а также универсальной последовательной шины USB,
+                            разъемы питания,
+                            преобразователь напряжения для питания процессора,
+                            разъем для подключения клавиатуры.
+                        </p>
+                    </div>
+                </div>
+
+                <div class = "d-flex flex-column">
+                    <div class="p-2">
+                        <img class = "img-responsive" src = "resources/info/motherboard.png">
+                    </div>
+                </div>
+            </div>
+
+            <div class = "d-inline-flex">
+                <div class="d-flex flex-column ">
+                    <div class="p-2">
+                        <h1 class = "h1" id = "battery">Батарейка CMOS</h1>
+                        <blockquote class="blockquote">
+                            <p class="mb-0" id = "battery_cite">Попытка выявить предприятия, зависящие от высоких технологий, столь же глупая затея,
+                                как попытка выявить предприятия, зависящие от телефона.</p>
+                            <footer class="blockquote-footer"> <cite title="Source Title" id = "battery_person">©Алан Купер</cite></footer>
+                        </blockquote>
+                    </div>
+                    <div class="p-2">
+                        <p class = "lead" id = "battery_text">«CMOS» — это память, в которой хранятся все настройки и параметры, установленные в BIOS.
+                            Физически, CMOS — это набор микросхем на материнской плате. Однако, память CMOS, в отличие от, например,
+                            памяти жёсткого диска, является энергозависимой. Это означает, что ей постоянно нужен электрический источник
+                            питания. В противном случае, все параметры установленные в ней сбрасываются (в том числе и системное время
+                            компьютера). В качестве такого источника питания и выступает небольшая плоская батарейка на материнской плате.
+                        </p>
+                    </div>
+                </div>
+
+                <div class = "d-flex flex-column">
+                    <div class="p-2">
+                        <img class = "img-responsive" src = "resources/info/battery.png">
+                    </div>
+                </div>
+            </div>
+
+            <div class = "d-inline-flex">
+                <div class="d-flex flex-column ">
+                    <div class="p-2">
+                        <h1 class = "h1" id = "hdd">Жёсткий диск</h1>
+                        <blockquote class="blockquote">
+                            <p class="mb-0" id = "hdd_cite">Один из важнейших уроков, преподанных компьютерной индустрии, заключается в том, что
+                                для пользователя ценность компьютера определяется преимущественно качеством и многообразием существующих
+                                программ. Мы все, занятые в этой индустрии, усвоили этот урок. Кто-то учился на чужих ошибках, а кто-то —
+                                на своих.</p>
+                            <footer class="blockquote-footer"> <cite title="Source Title" id = "hdd_person">©Билл Гейтс</cite></footer>
+                        </blockquote>
+                    </div>
+                    <div class="p-2">
+                        <p class = "lead" id = "hdd_text">Жёсткий диск — накопитель информации основанный на
+                            магнитных пластинах и эффекте магнетизма.
+                        </p>
+                    </div>
+                </div>
+
+                <div class = "d-flex flex-column">
+                    <div class="p-2">
+                        <img class = "img-responsive" src = "resources/info/hdd.png">
+                    </div>
+                </div>
+            </div>
+
+            <div class = "d-inline-flex">
+                <div class="d-flex flex-column ">
+                    <div class="p-2">
+                        <h1 class = "h1" id = "power">Блок питания</h1>
+                        <blockquote class="blockquote">
+                            <p class="mb-0" id = "power_cite">На скорости 1 000 000 операций в секунду результаты больше напоминают магию.</p>
+                            <footer class="blockquote-footer"> <cite title="Source Title" id = "power_person">©Стив Джобс</cite></footer>
+                        </blockquote>
+                    </div>
+                    <div class="p-2">
+                        <p class = "lead" id = "power_text">Блок питания — устройство, предназначенное для формирования напряжения, необходимого системе,
+                            из напряжения электрической сети. Чаще всего блоки питания преобразуют переменный ток сети 220 В частотой 50 Гц
+                            в заданный постоянный ток.
+                        </p>
+                    </div>
+                </div>
+
+                <div class = "d-flex flex-column">
+                    <div class="p-2">
+                        <img class = "img-responsive" src = "resources/info/power.png">
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class = "d-inline-flex">
+                <div class="d-flex flex-column ">
+                    <div class="p-2">
+                        <h1 class = "h1" id = "usb">USB</h1>
+                        <blockquote class="blockquote">
+                            <p class="mb-0" id = "usb_cite">Два самых известных продукта, созданных в Университете Беркли — это UNIX и LSD. Это не может быть просто совпадением. </p>
+                            <footer class="blockquote-footer"> <cite title="Source Title" id = "usb_person">©Джереми С.Андерсон</cite></footer>
+                        </blockquote>
+                    </div>
+                    <div class="p-2">
+                        <p class = "lead" id = "usb_text">USB – универсальный интерфейс для связи различных цифровых электронных устройств между собой.
+                            Аббревиатура USB расшифровывается как — UNIVERSAL SERIAL BUS, что в переводе означает - универсальная
+                            последовательная шина. Первая версия USB появилась в 1996 году.
+                        </p>
+                    </div>
+                </div>
+
+                <div class = "d-flex flex-column">
+                    <div class="p-2">
+                        <img class = "img-responsive" src = "resources/info/usb.png">
+                    </div>
+                </div>
+            </div>
+
+            <div class = "d-inline-flex">
+                <div class="d-flex flex-column ">
+                    <div class="p-2">
+                        <h1 class = "h1" id = "vga">VGA</h1>
+                        <blockquote class="blockquote">
+                            <p class="mb-0" id = "vga_cite">640 Кб должно хватить для любых задач.  </p>
+                            <footer class="blockquote-footer"> <cite title="Source Title" id = "vga_person">©Билл Гейтс, 1981 г.</cite></footer>
+                        </blockquote>
+                    </div>
+                    <div class="p-2">
+                        <p class = "lead" id = "vga_text">VGA - Первый стандарт подключения, используемый и посей день, был разработан в 1987 году
+                            ведущим в то время производителем компьютеров IBM для своих ПК серии PS/2.
+                            VGA - сокращенное Video Graphics Array (массив пикселов), в свое время именно так называлась видеоплата в
+                            компьютерах PS/2, разрешение которой составляло 640x480, часто встречающееся в технической литературе сочетание «VGA-разрешение» означает именно эту величину.
+                        </p>
+                    </div>
+                </div>
+
+                <div class = "d-flex flex-column">
+                    <div class="p-2">
+                        <img class = "img-responsive" src = "resources/info/vga.png">
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+
+<script src = "js/jQuery/jquery-3.2.1min.js"></script>
+<link rel = "stylesheet" href="bootstrap/css/bootstrap.min.css">
+<script type = text/javascript src = "bootstrap/js/bootstrap.min.js"></script>
+<script src = "js/info/ToTopScroll.js"></script>
+<script src = "js/info/LangChange.js"></script>
 </body>
 </html>

@@ -1,3 +1,8 @@
+
+@font-face {
+    font-family: OCR_OneCTT; /* Имя шрифта */
+    src: url(../resources/fonts/ocr.ttf); /* Путь к файлу со шрифтом */
+}
 #matrix{
     position: fixed;
     left: 0;
@@ -16,12 +21,27 @@
 .flex{
     display: flex;
     flex-direction: column;
+    align-items: center;
+}
+.logo{
+    font-size: 6rem;
+    color:#31FFFA;
+    font-weight:bold;
+    font-family: 'OCR_OneCTT';
+    text-align: center;
+}
+.lang{
+    width:15rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     justify-content: space-around;
 }
 .btn{
     margin:5px;
     width:15rem;
     height:5rem;
+    font-family: 'OCR_OneCTT';
 }
 .btn-text{
     font-size: 2.3em;
@@ -31,7 +51,6 @@
     color:antiquewhite;
 }
 .anim{
-    background-color:brown;
     height: 3.5rem;
 }
 .preloader {
@@ -93,4 +112,12 @@
         -webkit-transform: rotate(360deg) scale(1);
         transform: rotate(360deg) scale(1);
     }
+}
+
+#russian{
+    cursor: pointer;
+}
+
+#british{
+    cursor: pointer;
 }

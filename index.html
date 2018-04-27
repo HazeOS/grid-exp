@@ -21,9 +21,14 @@
 <div class = "container-fluid wrap">
     <div class = "row justify-content-center">
         <div class = "col-lg-12 col-md-12 col-sm-12 col-xs-12 flex">
-            <a class = "btn btn-success" data-toggle="tooltip" title="Play the Game" href = select.html><p class = "btn-text">Play</p></a>
-            <a class = "btn btn-info" data-toggle="tooltip" title="Watch Info" href = info.html><p class = "btn-text">Info</p></a>
-            <a class = "anim btn" data-toggle="tooltip" title="Disable Animation"><p class = "lead">Disable<br>Animation</p></a>
+            <p class = "logo">Сборка материнской платы</p>
+            <a class = "btn btn-success" data-toggle="tooltip" title="Play the Game" href = select.html><p class = "btn-text" id = "play">Играть</p></a>
+            <a class = "btn btn-info" data-toggle="tooltip" title="Watch Info" href = info.html><p class = "btn-text" id = "info">Инфо</p></a>
+            <a class = "anim btn btn-danger" data-toggle="tooltip" title="Disable Animation"><p class = "lead" id = "dis_anim">Отключить<br>Анимацию</p></a>
+            <div class = "lang">
+                <img src = "resources/info/russia.png" id = "russian">
+                <img src = "resources/info/united-kingdom.png" id = "british">
+            </div>
         </div>
     </div>
 </div>
@@ -33,6 +38,7 @@
 <script type = text/javascript src = "js/jQuery/jquery-1.10.2.js"></script>
 <link rel = "stylesheet" href="bootstrap/css/bootstrap.min.css">
 <script type = text/javascript src = "bootstrap/js/bootstrap.min.js"></script>
+<script type = text/javascript src = "js/video/lang.js"></script>
 
 </body>
 

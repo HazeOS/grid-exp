@@ -1,0 +1,29 @@
+.info{
+    background-color: #f4f4f4;
+}
+::selection {
+    background: #42f4df;
+}
+::-moz-selection {
+    background: #42f4df;
+}
+.item{
+    color:black;
+}
+.item:hover{
+    background-color: #0c5460;
+    color:white;
+}
+.up{
+    margin:0 0 0 0;
+    cursor: pointer;
+    position: fixed;
+    display: none;
+}
+#russian{
+    cursor: pointer;
+}
+
+#british{
+    cursor: pointer;
+}
