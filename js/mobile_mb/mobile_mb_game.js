@@ -19,6 +19,8 @@ function preload() {
 
     game.load.spritesheet('pause','./resources/controls/pause.png');
     game.load.spritesheet('play','./resources/controls/play.png');
+    game.load.spritesheet('rus','./resources/info/russia.png');
+    game.load.spritesheet('eng','./resources/info/united-kingdom.png');
 
     game.load.spritesheet('cpu','./resources/end/CPU.svg');
     game.load.spritesheet('hd','./resources/end/HD.svg');
@@ -31,6 +33,10 @@ function preload() {
 
     game.load.bitmapFont('desyrel', './resources/fonts/desyrel.png', './resources/fonts/desyrel.xml');
 }
+
+var placeholderRUS = "Ваше имя";
+var placeholderENG = "Your name";
+
 var group;
 var background;
 var motherboard;
@@ -44,6 +50,9 @@ var button_pause;
 var button_resume;
 var continue_button;
 var restart_button;
+
+var rus;
+var eng;
 
 var text;
 var score;
@@ -88,6 +97,9 @@ var wrongX,wrongY;
 var button_pauseX, button_pauseY;
 var button_resumeX, button_resumeY;
 
+var rusX, rusY;
+var engX, engY;
+
 //tolerance
 var miss_radiusX , miss_radiusY;
 var miss_radiusXX, miss_radiusYY;
@@ -113,10 +125,10 @@ function create () {
         pow_contX = 450; pow_contY = 200;
         condX = 550; condY = 200;
 
-        textX = 50;textY = 20;
+        textX = 100;textY = 20;
         timeTextX = 775;timeTextY = 110;
         clockX = 775;clockY = 160;
-        scoreX = 775;scoreY = 20;
+        scoreX = 725;scoreY = 20;
         true_countX = 725; true_countY = 60;
         false_countX = 880; false_countY = 60;
         rightX = 725; rightY = 90;
@@ -136,6 +148,9 @@ function create () {
 
         button_pauseX = 920; button_pauseY = 690;
         button_resumeX = 845; button_resumeY = 690;
+
+        rusX = 20; rusY = 20;
+        engX = 60; engY = 20;
     }
 
     if(Width>=1367 && Width<=1599 && Height>=768 && Height<=1000)
@@ -151,7 +166,7 @@ function create () {
         textX = 100;textY = 20;
         timeTextX = 1020;timeTextY = 110;
         clockX = 1020;clockY = 160;
-        scoreX = 1020;scoreY = 20;
+        scoreX = 955;scoreY = 20;
         true_countX = 955; true_countY = 60;
         false_countX = 1150; false_countY = 60;
         rightX = 955; rightY = 90;
@@ -171,6 +186,9 @@ function create () {
 
         button_pauseX = 1125; button_pauseY = 690;
         button_resumeX = 1050; button_resumeY = 690;
+
+        rusX = 20; rusY = 20;
+        engX = 60; engY = 20;
     }
 
     if(Width>=1600 && Width<=2560 && Height>=1001 && Height<=1200)
@@ -186,7 +204,7 @@ function create () {
         textX = 100;textY = 50;
         timeTextX = 1700;timeTextY = 140;
         clockX = 1707;clockY = 200;
-        scoreX = 1700;scoreY = 10;
+        scoreX = 1670;scoreY = 10;
         true_countX = 1670; true_countY = 60;
         false_countX = 1780; false_countY = 60;
         rightX = 1670; rightY = 100;
@@ -206,6 +224,9 @@ function create () {
 
         button_pauseX = 1840; button_pauseY = 960;
         button_resumeX = 1765; button_resumeY = 960;
+
+        rusX = 20; rusY = 20;
+        engX = 60; engY = 20;
     }
 
     game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
@@ -217,29 +238,29 @@ function create () {
     background.scale.scaleMode  = Phaser.ScaleManager.EXACT_FIT;
 
 //TEXT
-    text = game.add.text(textX,textY,"Details",
+    text = game.add.text(textX,textY,"Детали",
         {font: "bold 48px Consolas", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle"});
-    timeText = game.add.text(timeTextX,timeTextY,"Timer",
+    timeText = game.add.text(timeTextX,timeTextY,"Таймер",
         {font: "bold 48px Consolas", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle"});
     clock = game.add.text(clockX,clockY,minutes+seconds,
         {font: "bold 24px Consolas", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle"});
-    score = game.add.text(scoreX,scoreY,"Score",
+    score = game.add.text(scoreX,scoreY,"Результат",
         {font: "bold 48px Consolas", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle"});
-    true_count = game.add.text(true_countX,true_countY,"True",
+    true_count = game.add.text(true_countX,true_countY,"Верно",
         {font: "bold 32px Consolas", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle"});
     right = game.add.text(rightX,rightY,counterTrue,
         {font: "bold 28px Consolas", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle"});
 
-    false_count = game.add.text(false_countX,false_countY,"False",
+    false_count = game.add.text(false_countX,false_countY,"Неверно",
         {font: "bold 32px Consolas", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle"});
     wrong = game.add.text(wrongX,wrongY,counterFalse,
         {font: "bold 28px Consolas", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle"});
 
-    win = game.add.text(game.world.centerX,Height+200,"YOU WON!",
+    win = game.add.text(game.world.centerX,Height+200,"Вы победили!",
         {font: "bold 128px Consolas", fill: "#fff", align:"center",boundsAlignH: "center", boundsAlignV: "middle"});
     win.anchor.setTo(0.45,0.5);
 
-    lose = game.add.text(game.world.centerX,Height-2000,"YOU LOSE",
+    lose = game.add.text(game.world.centerX,Height-2000,"Вы проиграли",
         {font: "bold 128px Consolas", fill: "#fff", align:"center",boundsAlignH: "center", boundsAlignV: "middle"});
     lose.anchor.setTo(0.45,0.5);
 
@@ -319,6 +340,14 @@ function create () {
     restart_button.scale.setTo(1);
     restart_button.events.onInputOver.add(_rotate,this);
 
+    rus = game.add.button(rusX,rusY, 'rus', switchRUS, this);
+    rus.inputEnabled = true;
+    rus.scale.setTo(1);
+
+    eng = game.add.button(engX,engY, 'eng', switchENG, this);
+    eng.inputEnabled = true;
+    eng.scale.setTo(1);
+
     inputDB = game.add.inputField(game.world.centerX-400, Height+200, {
         font: '18px Arial',
         fill: '#212121',
@@ -335,16 +364,16 @@ function create () {
 
 function render() {
 
-    var mousex = game.input.mousePointer.x;
+    /*var mousex = game.input.mousePointer.x;
     var mousey = game.input.mousePointer.y;
 
     right.setText(counterTrue);
-    wrong.setText(counterFalse);
+    wrong.setText(counterFalse);*/
 
     if (timer.running) {
         clock.setText(formatTime(Math.round((timerEvent.delay - timer.ms) / 1000)));
     }
-
+/*
     game.debug.text(result, 1200, 960);
     game.debug.text(counterTrue, 1200, 980);
     game.debug.text(counterFalse, 1200, 1000);
@@ -353,7 +382,7 @@ function render() {
     game.debug.text(Width, 1300, 1000);
 
     game.debug.text(mousex, 1400, 980);
-    game.debug.text(mousey, 1400, 1000);
+    game.debug.text(mousey, 1400, 1000);*/
 
 
 }
@@ -639,4 +668,24 @@ function restart() {
 }
 function gotoRestart() {
     game.state.restart();
+}
+function switchRUS() {
+    text.text = "Детали";
+    score.text = "Результат";
+    timeText.text = "Таймер";
+    true_count.text = "Верно";
+    false_count.text = "Неверно";
+    win.text = "Вы победили!";
+    lose.text = "Вы проиграли";
+    inputDB.placeHolder.text = placeholderRUS;
+}
+function switchENG() {
+    text.text = "Details";
+    score.text = "Score";
+    timeText.text = "Timer";
+    true_count.text = "True";
+    false_count.text = "False";
+    win.text = "You win!";
+    lose.text = "You lose";
+    inputDB.placeHolder.text = placeholderENG;
 }

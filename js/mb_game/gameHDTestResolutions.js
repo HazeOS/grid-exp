@@ -27,6 +27,8 @@ function preload() {
 
    game.load.spritesheet('pause','./resources/controls/pause.png');
    game.load.spritesheet('play','./resources/controls/play.png');
+   game.load.spritesheet('rus','./resources/info/russia.png');
+   game.load.spritesheet('eng','./resources/info/united-kingdom.png');
 
    game.load.spritesheet('cpu','./resources/end/CPU.svg');
    game.load.spritesheet('hd','./resources/end/HD.svg');
@@ -41,6 +43,8 @@ function preload() {
 }
 
 var result = "Drag Something";
+var placeholderRUS = "Ваше имя";
+var placeholderENG = "Your name";
 
 var background;
 var motherboard;
@@ -61,6 +65,9 @@ var button_pause;
 var button_resume;
 var continue_button;
 var restart_button;
+
+var rus;
+var eng;
 
 var text;
 var score;
@@ -108,6 +115,9 @@ var wrongX,wrongY;
 var button_pauseX, button_pauseY;
 var button_resumeX, button_resumeY;
 
+var rusX, rusY;
+var engX, engY;
+
 //tolerance
 var miss_radius;
 
@@ -126,8 +136,49 @@ var usb_tolX, usb_tolXX, usb_tolY, usb_tolYY, usb_idealX, usb_idealY;
 function create () {
 
 //Resolution Controls
+    if(Width>=1000 && Width<=1024 && Height>=768 && Height<=1024)
+    {
+        details_scale = 0.375;
+        procX = 700; procY = 70;
+        powX = 870; powY = 70;
+        batX = 910; batY = 70;
+        multiX = 930; multiY = 235;
+        resX = 927; resY = 165;
+        startX = 923; startY = 130;
+        sataX = 927; sataY = 195;
+        sata_bX = 700; sata_bY = 235;
+        soundX = 765; soundY = 235;
+        usbX = 835; usbY = 235;
 
-    if(Width>=1001 && Width<=1366 && Height>=768 && Height<=1024)
+        textX = 735;textY = 10;
+        timeTextX = 770;timeTextY = 480;
+        clockX = 770;clockY = 525;
+        scoreX = 735;scoreY = 370;
+        true_countX = 720; true_countY = 410;
+        false_countX = 870; false_countY = 410;
+        rightX = 720; rightY = 440;
+        wrongX = 870;wrongY = 440;
+
+        proc_tolX = 272;proc_tolXX = 404; proc_tolY = 133; proc_tolYY = 211; proc_idealX = 313;proc_idealY = 152;
+        pow_tolX = 630;pow_tolXX = 662; pow_tolY = 177; pow_tolYY = 268; pow_idealX = 645;pow_idealY = 204;
+        bat_tolX = 369;bat_tolXX = 404; bat_tolY = 454; bat_tolYY = 500; bat_idealX = 389;bat_idealY = 478;
+        multi_tolX = 40;multi_tolXX = 80; multi_tolY = 462; multi_tolYY = 561; multi_idealX = 55;multi_idealY = 482;
+        res_tolX = 262;res_tolXX = 280; res_tolY = 630; res_tolYY = 650; res_idealX = 270;res_idealY = 640;
+        start_tolX = 217;start_tolXX = 240; start_tolY = 622; start_tolYY = 651; start_idealX = 230;start_idealY = 639;
+        sata_tolX = 549;sata_tolXX = 589; sata_tolY = 637; sata_tolYY = 655; sata_idealX = 570;sata_idealY = 648;
+        sata_b_tolX = 630;sata_b_tolXX = 672; sata_b_tolY = 443; sata_b_tolYY = 517; sata_b_idealX = 653;sata_b_idealY = 470;
+        sound_tolX = 13;sound_tolXX = 63; sound_tolY = 572; sound_tolYY = 615; sound_idealX = 34;sound_idealY = 591;
+        usb_tolX = 0;usb_tolXX = 40; usb_tolY = 191; usb_tolYY = 229; usb_idealX = 12;usb_idealY = 210;
+
+        miss_radius = 694;
+
+        button_pauseX = 950; button_pauseY = 690;
+        button_resumeX = 875; button_resumeY = 690;
+
+        rusX = 930; rusY = 20;
+        engX = 970; engY = 20;
+    }
+    if(Width>=1025 && Width<=1366 && Height>=768 && Height<=1024)
         {
             details_scale = 0.429;
             procX = 800; procY = 70;
@@ -142,9 +193,9 @@ function create () {
             usbX = 935; usbY = 285;
 
             textX = 905;textY = 10;
-            timeTextX = 1;timeTextY = 1;//CHANGE
-            clockX = 1;clockY = 1;//CHANGE
-            scoreX = 905;scoreY = 470;
+            timeTextX = 840;timeTextY = 600;
+            clockX = 840;clockY = 650;
+            scoreX = 840;scoreY = 470;
             true_countX = 840; true_countY = 520;
             false_countX = 1020; false_countY = 520;
             rightX = 840; rightY = 550;
@@ -165,6 +216,9 @@ function create () {
 
             button_pauseX = 1125; button_pauseY = 690;
             button_resumeX = 1050; button_resumeY = 690;
+
+            rusX = 1100; rusY = 20;
+            engX = 1140; engY = 20;
         }
 
     if(Width>=1367 && Width<=1599 && Height>=768 && Height<=1000)
@@ -182,9 +236,9 @@ function create () {
             usbX = 1060; usbY = 285;
 
             textX = 1025;textY = 10;
-            timeTextX = 1;timeTextY = 1;//CHANGE
-            clockX = 1;clockY = 1;//CHANGE
-            scoreX = 1025;scoreY = 470;
+            timeTextX = 955;timeTextY = 575;
+            clockX = 955;clockY = 620;
+            scoreX = 955;scoreY = 470;
             true_countX = 955; true_countY = 520;
             false_countX = 1150; false_countY = 520;
             rightX = 955; rightY = 550;
@@ -205,6 +259,9 @@ function create () {
 
             button_pauseX = 1125; button_pauseY = 690;
             button_resumeX = 1050; button_resumeY = 690;
+
+            rusX = 1220; rusY = 20;
+            engX = 1260; engY = 20;
         }
 
     if(Width>=1600 && Width<=2560 && Height>=1001 && Height<=1200)
@@ -222,12 +279,12 @@ function create () {
             usbX = 1400; usbY = 350;
 
             textX = 1250;textY = 10;
-            timeTextX = 1700;timeTextY = 140;
-            clockX = 1707;clockY = 200;
-            scoreX = 1700;scoreY = 10;
-            true_countX = 1670; true_countY = 60;
+            timeTextX = 1600;timeTextY = 140;
+            clockX = 1600;clockY = 200;
+            scoreX = 1600;scoreY = 10;
+            true_countX = 1600; true_countY = 60;
             false_countX = 1780; false_countY = 60;
-            rightX = 1670; rightY = 100;
+            rightX = 1600; rightY = 100;
             wrongX = 1780;wrongY = 100;
 
             proc_tolX = 420;proc_tolXX = 510; proc_tolY = 190; proc_tolYY = 260; proc_idealX = 480;proc_idealY = 235;
@@ -245,6 +302,9 @@ function create () {
 
             button_pauseX = 1840; button_pauseY = 960;
             button_resumeX = 1765; button_resumeY = 960;
+
+            rusX = 1800; rusY = 150;
+            engX = 1840; engY = 150;
         }
 
     game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
@@ -256,29 +316,29 @@ function create () {
     background.scale.scaleMode  = Phaser.ScaleManager.EXACT_FIT;
 
 //TEXT
-    text = game.add.text(textX,textY,"Details",
+    text = game.add.text(textX,textY,"Детали",
         {font: "bold 48px Consolas", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle"});
-    timeText = game.add.text(timeTextX,timeTextY,"Timer",
+    timeText = game.add.text(timeTextX,timeTextY,"Таймер",
         {font: "bold 48px Consolas", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle"});
     clock = game.add.text(clockX,clockY,minutes+seconds,
         {font: "bold 24px Consolas", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle"});
-    score = game.add.text(scoreX,scoreY,"Score",
+    score = game.add.text(scoreX,scoreY,"Результат",
         {font: "bold 48px Consolas", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle"});
-    true_count = game.add.text(true_countX,true_countY,"True",
+    true_count = game.add.text(true_countX,true_countY,"Верно",
         {font: "bold 32px Consolas", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle"});
     right = game.add.text(rightX,rightY,counterTrue,
         {font: "bold 28px Consolas", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle"});
 
-    false_count = game.add.text(false_countX,false_countY,"False",
+    false_count = game.add.text(false_countX,false_countY,"Неверно",
         {font: "bold 32px Consolas", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle"});
     wrong = game.add.text(wrongX,wrongY,counterFalse,
         {font: "bold 28px Consolas", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle"});
 
-    win = game.add.text(game.world.centerX,Height+200,"YOU WON!",
+    win = game.add.text(game.world.centerX,Height+200,"Вы победили!",
         {font: "bold 128px Consolas", fill: "#fff", align:"center",boundsAlignH: "center", boundsAlignV: "middle"});
     win.anchor.setTo(0.45,0.5);
 
-    lose = game.add.text(game.world.centerX,Height-2000,"YOU LOSE",
+    lose = game.add.text(game.world.centerX,Height-2000,"Вы проиграли",
         {font: "bold 128px Consolas", fill: "#fff", align:"center",boundsAlignH: "center", boundsAlignV: "middle"});
     lose.anchor.setTo(0.45,0.5);
 
@@ -393,6 +453,14 @@ function create () {
     button_pause.events.onInputUp.add(create_resume_button, this);
     button_pause.scale.setTo(1);
 
+    rus = game.add.button(rusX,rusY, 'rus', switchRUS, this);
+    rus.inputEnabled = true;
+    rus.scale.setTo(1);
+
+    eng = game.add.button(engX,engY, 'eng', switchENG, this);
+    eng.inputEnabled = true;
+    eng.scale.setTo(1);
+
     continue_button = game.add.button(game.world.centerX,Height+200, 'continue', gotoResults, this);
     continue_button.inputEnabled = true;
     continue_button.anchor.setTo(0.5,0.5);
@@ -414,32 +482,32 @@ function create () {
         borderWidth: 1,
         borderColor: '#000',
         borderRadius: 6,
-        placeHolder: 'Your Name'
+        placeHolder: placeholderRUS
     });
 
 }
 
 function render() {
-
-    //var mousex = game.input.mousePointer.x;
-    //var mousey = game.input.mousePointer.y;
+/*
+    var mousex = game.input.mousePointer.x;
+    var mousey = game.input.mousePointer.y;
 
     right.setText(counterTrue);
-    wrong.setText(counterFalse);
+    wrong.setText(counterFalse);*/
 
     if (timer.running) {
         clock.setText(formatTime(Math.round((timerEvent.delay - timer.ms) / 1000)));
     }
+/*
+    game.debug.text(result, 100, 700);
+    game.debug.text(counterTrue, 100, 740);
+    game.debug.text(counterFalse, 100, 760);
 
-    /*game.debug.text(result, 1200, 960);
-    game.debug.text(counterTrue, 1200, 980);
-    game.debug.text(counterFalse, 1200, 1000);
+    game.debug.text(Height, 400, 680);
+    game.debug.text(Width, 400, 700);
 
-    game.debug.text(Height, 1300, 980);
-    game.debug.text(Width, 1300, 1000);
-
-    game.debug.text(mousex, 1400, 980);
-    game.debug.text(mousey, 1400, 1000);*/
+    game.debug.text(mousex, 600, 700);
+    game.debug.text(mousey, 600, 740);*/
 
 
 }
@@ -831,4 +899,25 @@ function restart() {
 }
 function gotoRestart() {
     game.state.restart();
+}
+
+function switchRUS() {
+    text.text = "Детали";
+    score.text = "Результат";
+    timeText.text = "Таймер";
+    true_count.text = "Верно";
+    false_count.text = "Неверно";
+    win.text = "Вы победили!";
+    lose.text = "Вы проиграли";
+    inputDB.placeHolder.text = placeholderRUS;
+}
+function switchENG() {
+    text.text = "Details";
+    score.text = "Score";
+    timeText.text = "Timer";
+    true_count.text = "True";
+    false_count.text = "False";
+    win.text = "You win!";
+    lose.text = "You lose";
+    inputDB.placeHolder.text = placeholderENG;
 }

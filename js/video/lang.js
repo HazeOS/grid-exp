@@ -15,4 +15,17 @@ $(document).ready(function () {
         $('#info').text("Info");
         $('#dis_anim').text("Disable\n"+"Animation");
     });
+
+    var russian_info  = $('#russian-info');
+    var british_info  = $('#british-info');
+
+    russian_info.click(function () {
+        $('#mobile').text("Мобильная материнская плата");
+        $('#pc').text("Компьютерная материнская плата");
+    });
+
+    british_info.click(function () {
+        $('#mobile').text("Mobile Motherboard");
+        $('#pc').text("PC Motherboard");
+    });
 });

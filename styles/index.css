@@ -1,15 +1,9 @@
 
 @font-face {
-    font-family: OCR_OneCTT; /* Имя шрифта */
-    src: url(../resources/fonts/ocr.ttf); /* Путь к файлу со шрифтом */
+    font-family: OCR_OneCTT;
+    src: url(../resources/fonts/ocr.ttf);
 }
-#matrix{
-    position: fixed;
-    left: 0;
-    top: 0;
-    min-width: 100%;
-    min-height: 100%;
-}
+
 .wrap{
     height:100vh;
     width:100vw;
@@ -17,6 +11,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: linear-gradient(271deg, #ffffff, #e4ffad, #ffc1c1, #cbffbf, #ffffff);
+    background-size: 1000% 1000%;
+
+    -webkit-animation: AnimationName 11s ease infinite;
+    -moz-animation: AnimationName 11s ease infinite;
+    animation: AnimationName 11s ease infinite;
+
 }
 .flex{
     display: flex;
@@ -25,11 +26,43 @@
 }
 .logo{
     font-size: 6rem;
-    color:#31FFFA;
+    color:white;
+    text-shadow: tomato 0 0 10px;
     font-weight:bold;
     font-family: 'OCR_OneCTT';
     text-align: center;
 }
+
+#play{
+    color:white;
+    text-shadow: green 1px 1px 0, green -1px -1px 0,
+    green -1px 1px 0, green 1px -1px 0;
+    transition: 0.5s all;
+}
+#play:hover{
+    text-shadow: green 0 0 10px;
+}
+
+#info{
+    color:white;
+    text-shadow: blue 1px 1px 0, blue -1px -1px 0,
+    blue -1px 1px 0, blue 1px -1px 0;
+    transition: 0.5s all;
+}
+#info:hover{
+    text-shadow: blue 0 0 10px;
+}
+
+#dis_anim{
+    color:white;
+    text-shadow: orangered 1px 1px 0, orangered -1px -1px 0,
+    orangered -1px 1px 0, orangered 1px -1px 0;
+    transition: 0.5s all;
+}
+#dis_anim:hover{
+    text-shadow: orangered 0 0 10px;
+}
+
 .lang{
     width:15rem;
     display: flex;
@@ -42,6 +75,7 @@
     width:15rem;
     height:5rem;
     font-family: 'OCR_OneCTT';
+    border:2px solid blueviolet;
 }
 .btn-text{
     font-size: 2.3em;
@@ -59,7 +93,7 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background: black;
+    background: radial-gradient(#fff, #ffe5e5);
     z-index: 2;
     transition: 1s all;
     opacity: 1;
@@ -71,7 +105,7 @@
     top:50%;
     left:50%;
     transform: translate(-50%,-50%);
-    background: #eee;
+    background: #DDDDDD;
     border-radius: 50%;
     position: absolute;
     display: inline-block;
@@ -86,13 +120,14 @@
 
 .loader1:after {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: -4px;
+    left: -4px;
     border: 4px solid transparent;
     border-top-color: orangered;
     border-bottom-color: orangered;
     -webkit-animation: spinny 1s linear infinite;
     animation: spinny 1s linear infinite;
+    box-sizing:content-box;
 }
 
 .done {
@@ -113,11 +148,77 @@
         transform: rotate(360deg) scale(1);
     }
 }
-
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 49%}
+    50%{background-position:100% 52%}
+    100%{background-position:0% 49%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 49%}
+    50%{background-position:100% 52%}
+    100%{background-position:0% 49%}
+}
+@keyframes AnimationName {
+    0%{background-position:0% 49%}
+    50%{background-position:100% 52%}
+    100%{background-position:0% 49%}
+}
 #russian{
     cursor: pointer;
 }
 
 #british{
     cursor: pointer;
+}
+
+#wrench:hover{
+    animation: spin 1s ease-out ;
+    cursor: pointer;
+}
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg) ;
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+#question:hover{
+    animation: bouncing 0.5s ease ;
+    cursor: pointer;
+}
+@keyframes bouncing{
+    0%  {
+        transform:translateY(0px);
+    }
+    50%{
+        transform:translateY(-20px) ;
+    }
+    100%{
+        transform:translateY(0px);
+    }
+}
+#disable:hover{
+    animation: zooming 0.5s;
+    cursor: pointer;
+}
+@keyframes zooming{
+    0%  {
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.2) ;
+    }
+    100%{
+        transform:scale(1);
+    }
+}
+
+::selection {
+    background: #42f4df;
+}
+::-moz-selection {
+    background: #42f4df;
 }
