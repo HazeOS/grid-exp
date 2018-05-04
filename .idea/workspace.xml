@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6f25d82a-fd82-49b8-8469-2cc236a49d1c" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.tmp.drivedownload/1046863.driveupload" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.tmp.drivedownload/6198799.driveupload" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/php/insert.js" afterPath="$PROJECT_DIR$/php/insert.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scores.html" afterPath="$PROJECT_DIR$/scores.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/index.css" afterPath="$PROJECT_DIR$/styles/index.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/score.css" afterPath="$PROJECT_DIR$/styles/score.css" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -74,8 +68,8 @@
           <file leaf-file-name="insert.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/php/insert.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="442">
-                  <caret line="26" column="30" lean-forward="false" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
+                <state relative-caret-position="238">
+                  <caret line="14" column="20" lean-forward="true" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
                   <folding />
                 </state>
               </provider>
@@ -267,11 +261,6 @@
               <item name="grid-exp" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="php" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
-            <path>
-              <item name="grid-exp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="grid-exp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="styles" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -338,12 +327,12 @@
       <workItem from="1525365985387" duration="797000" />
       <workItem from="1525369615058" duration="2949000" />
       <workItem from="1525373522265" duration="2025000" />
-      <workItem from="1525427473157" duration="7922000" />
+      <workItem from="1525427473157" duration="8168000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96925000" />
+    <option name="totallyTimeSpent" value="97171000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -651,8 +640,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/php/insert.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="30" lean-forward="false" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
+        <state relative-caret-position="238">
+          <caret line="14" column="20" lean-forward="true" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
           <folding />
         </state>
       </provider>
