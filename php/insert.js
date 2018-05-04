@@ -11,7 +11,6 @@ $(document).ready(function () {
             data: form_data,
             success: function (data) {
                 if(count===1) {
-                    alert("Успех");
                     $('#username').addClass('is-valid');
                     $(".form-group").append('<span class="badge badge-success">Отправлено</span>');
                     $("#username").val(''); //очищаем текстовое поле после успешной вставки
@@ -22,9 +21,9 @@ $(document).ready(function () {
                 }
             },
             error: function (xhr, str) {
-                alert("Ошибка: " + xhr.responseCode);
                 $('#username').addClass('is-invalid');
                 $(".form-group").append('<span class="badge badge-danger">Ошибка</span>');
+                $("#append").addClass('disabled');
             }
         });
         return false;
