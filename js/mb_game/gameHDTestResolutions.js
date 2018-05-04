@@ -1,5 +1,4 @@
 
-
 var Height = window.screen.availHeight;
 var Width = window.screen.availWidth;
 
@@ -482,7 +481,9 @@ function create () {
         borderWidth: 1,
         borderColor: '#000',
         borderRadius: 6,
-        placeHolder: placeholderRUS
+        placeHolder: placeholderRUS,
+        max:40,
+        min:2
     });
 
 }
@@ -491,13 +492,15 @@ function render() {
 /*
     var mousex = game.input.mousePointer.x;
     var mousey = game.input.mousePointer.y;
-
+*/
     right.setText(counterTrue);
-    wrong.setText(counterFalse);*/
+    wrong.setText(counterFalse);
 
     if (timer.running) {
         clock.setText(formatTime(Math.round((timerEvent.delay - timer.ms) / 1000)));
     }
+
+
 /*
     game.debug.text(result, 100, 700);
     game.debug.text(counterTrue, 100, 740);
@@ -671,6 +674,9 @@ function onDragStop(sprite,pointer) {
         win_text();
         matrix();
     }
+    var right = $.cookie('right', counterTrue);
+    var wrong = $.cookie('wrong', counterFalse);
+
 }
 
 
@@ -861,7 +867,7 @@ function _continue() {
     tween1.onComplete.add(_rotate,this);
 }
 function gotoResults() {
-    window.open("http://www.google.com", "_blank");
+    window.open("scores.html","_new");
 }
 function _rotate(sprite) {
     game.add.tween(sprite).to( { angle:-360 }, 2000, Phaser.Easing.Exponential.InOut,true);
@@ -921,3 +927,4 @@ function switchENG() {
     lose.text = "You lose";
     inputDB.placeHolder.text = placeholderENG;
 }
+

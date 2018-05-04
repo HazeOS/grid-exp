@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Результаты</title>
+    <link rel = "stylesheet" href = "styles/index.css">
+    <link rel="shortcut icon" href="resources/index/geek.png" type="image/png">
+</head>
+<body>
+<div id = "page-preloader" class = "preloader">
+    <div class = "loader loader1"></div>
+</div>
+
+<div class = "container-fluid">
+    <div class = "row">
+        <div class = "col-lg-12 col-md-12">
+            <div class = "d-flex flex-column justify-content-center align-items-center">
+                <h1 class = "h1">Ваш результат</h1>
+                <p class = "display-1" id = "result"></p>
+
+                <form class="form-row" action="./php/dbc.php" type = "POST" id = "form">
+                        <div class="form-group mx-sm-3 mb-2 d-flex flex-column justify-content-start">
+                            <input type="text" name = "username" class="form-control" id="username" placeholder="Ваше имя">
+                        </div>
+                        <div class="valid-feedback">Отправлено</div>
+                        <button type="submit" class="btn btn-primary mb-2" id = "append">Добавить</button>
+                </form>
+
+                <p class = "display-3"> Таблица из БД PHPHPHP</p>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src = "js/jQuery/jquery-3.2.1min.js"></script>
+<script type = text/javascript src = "js/preloader/preloader.js"></script>
+<script src = "js/jQuery/jquery.cookie.js"></script>
+<script type = "text/javascript" src = "js/input.js"></script>
+<script src = "php/insert.js"></script>
+<link rel = "stylesheet" href="bootstrap/css/bootstrap.min.css">
+<script type = text/javascript src = "bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

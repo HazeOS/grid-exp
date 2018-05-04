@@ -1,0 +1,24 @@
+$(document).ready(function () {
+    $("#form").submit(function () { //устанавливаем событие отправки для формы с id=form
+
+        var form_data = $(this).serialize(); //собераем все данные из формы
+        $.ajax({
+            type: "POST", //Метод отправки
+            url: "php/dbc.php", //путь до php фаила отправителя
+            data: form_data,
+            success: function (data) {
+                alert("Успех");
+                $('#username').addClass('is-valid');
+                $(".form-group").append('<span class="badge badge-success">Отправлено</span>');
+                $("#username").val(''); //очищаем текстовое поле после успешной вставки
+                $("#append").addClass('disabled');
+            },
+            error: function (xhr, str) {
+                alert("Ошибка: " + xhr.responseCode);
+                $('#username').addClass('is-invalid');
+                $("#form").append('<span class="badge badge-danger">Ошибка</span>');
+            }
+        });
+        return false;
+    });
+});
