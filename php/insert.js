@@ -24,7 +24,7 @@ $(document).ready(function () {
             error: function (xhr, str) {
                 alert("Ошибка: " + xhr.responseCode);
                 $('#username').addClass('is-invalid');
-                $("#form").append('<span class="badge badge-danger">Ошибка</span>');
+                $("#form-group").append('<span class="badge badge-danger">Ошибка</span>');
             }
         });
         return false;
